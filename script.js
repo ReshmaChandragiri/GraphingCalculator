@@ -117,7 +117,7 @@ window.addEventListener('load', () => {
   context.beginPath();
   context.strokeStyle = 'black';
   context.lineWidth = 2;
- let expr='2*x*x+3*x+10';
+ let expr='2*x';
 
   for (let x = minX; x <= maxX; x += 0.1) {
      
