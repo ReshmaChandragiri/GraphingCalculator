@@ -1,0 +1,28 @@
+// Plot graph
+  const expression = 'x^2'; // Replace with your desired expression
+  
+  const parser = math.parser();
+  const f = parser.eval(`f(x) = ${expression}`);
+  
+  <!-- context.beginPath();
+  context.strokeStyle = 'black';
+  context.lineWidth = 2;
+   -->
+  <!-- const minX = -10;
+  const maxX = 10; -->
+  const stepSize = 0.1;
+  
+  for (let x = minX; x <= maxX; x += stepSize) {
+    const y = f.evaluate({ x });
+    
+    const mappedX = canvas.width / 2 + x * canvas.width / (maxX - minX);
+    const mappedY = canvas.height / 2 - y * canvas.height / (maxX - minX);
+    
+    if (x === minX) {
+      context.moveTo(mappedX, mappedY);
+    } else {
+      context.lineTo(mappedX, mappedY);
+    }
+  }
+  
+  context.stroke();
