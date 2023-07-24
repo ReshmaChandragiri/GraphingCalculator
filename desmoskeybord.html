@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <link rel="stylesheet" href="desmos.css"> -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+      }
+
+      .overlay {
+        height: 0%;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(245, 245, 245);
+        overflow: hidden;
+        transition: 0.5s;
+      }
+
+      .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: #a4a1a1;
+        display: block;
+        transition: 0.3s;
+      }
+
+      .overlay .closebtn {
+        position: absolute;
+        top: 0;
+        right: 5px;
+        font-size: 20px;
+      }
+      .overlay-content {
+        position: relative;
+        top: 11%;
+        text-align: center;
+        margin-top: 0; 
+      }
+      #keybordbtn{
+        padding: 7px 40px;
+
+      }
+      /* .btn{
+        padding: 7px 40px;
+      } */
+      /* .line1 .btn{
+        padding: 7px 40px;
+      }
+      .line2 .btn{
+        padding: 7px 40px;
+      } */
+      .line3 .btn{
+        padding: 7px 38.5px;
+      }
+      /* .line4 .btn{
+        padding: 7px 40px;
+      } */
+      #number{
+        background-color: #d3cfcf;
+        width: 158px;
+      }
+      #number:hover{
+        background-color: #c7c3c3;;
+      }
+      #capslock{
+        background-color: #d3cfcf;
+        color: black;
+        font-size: 16px;
+      }
+      #capslock:hover{
+        background-color: #c7c3c3;;
+      }
+      #backspace{
+        background-color: #d3cfcf;
+      }
+      #backspace:hover{
+        background-color: #c7c3c3;;
+      }
+      #leftcurvedarrow{
+        width: 158px;
+      }
+      #keybordbtn {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+      }
+      /* .space1 {
+         margin-right: 43px !important;
+      }
+      .space2 {
+         margin-right: 43px !important;
+      }
+      .space3 {
+         margin-right: 43px !important;
+      }
+      .space4 {
+         margin-right: 43px !important;
+      }
+      .space5 {
+         margin-right: 43px !important;
+      }
+      .space6 {
+         margin-right: 43px !important;
+      }
+      .space7 {
+         margin-right: 43px !important;
+      }
+      .space8 {
+         margin-right: 43px !important;
+      } */
+      .line5 .btn{
+        padding: 7px 40px;
+      }
+      .line6 .btn{
+        padding: 7px 38px;
+      }
+      .line7 .btn{
+        padding: 7px 42.8px;
+      }
+      .line8 .btn{
+        padding: 7px 41.2px;
+      }
+      #numbers{
+        background-color: #d3cfcf;
+      }
+      #numbers:hover{
+        background-color: #c7c3c3;;
+      }
+      #functions{
+        background-color: #d3cfcf;
+      }
+      #functions:hover{
+        background-color: #c7c3c3;;
+      }
+      #leftarrow{
+        background-color: #d3cfcf;
+      }
+      #leftarrow:hover{
+        background-color: #c7c3c3;;
+      }
+      #rightarrow{
+        background-color: #d3cfcf;
+      }
+      #rightarrow:hover{
+        background-color: #c7c3c3;;
+      }
+      #back{
+        background-color: #d3cfcf;
+      }
+      #back:hover{
+        background-color: #c7c3c3;;
+      }
+      #alphabet{
+        background-color: #d3cfcf;
+      }
+      #alphabet:hover{
+        background-color: #c7c3c3;;
+      }
+      #sound{
+        background-color: #d3cfcf;
+      }
+      #sound:hover{
+        background-color: #c7c3c3;;
+      }
+      /* .key {
+        width: 90px;
+        height: 35px;
+        padding: 6px 15px;
+        background-color:white;
+        text-align: center;
+        border-radius: 2px;
+        float: left;
+        margin-left: 3px;
+        cursor: pointer;
+        margin-bottom: 2px; 
+      }
+      
+       .space {
+         margin-right: 43px !important;
+      } */
+      @media screen and (max-height: 450px) {
+        .overlay {
+          overflow-y: auto;
+        }
+        .overlay a {
+          font-size: 20px;
+        }
+        .overlay .closebtn {
+          font-size: 40px;
+          top: 15px;
+          right: 35px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="myNav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="KeybordcloseNav()"
+        >&times;</a
+      >
+      <div class="row">
+        <div class="col-md-8 offset-md-2 mt-1">
+          <div class="input-group input-group-lg w-100">
+            <!-- <span class="input-group-text" id="inputGroup-sizing-lg">1</span> -->
+            <input
+              id="cal-display"
+              readonly
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="overlay-content">
+          <!-- <div class="key letter">x</div>
+          <div class="key letter">y</div>
+          <div class="key letter">a<sup>2</sup></div>
+          <div class="key letter space">a<sup>b</sup></div>
+          <div class="key num">7</div>
+          <div class="key num">8</div>
+          <div class="key num">9</div>
+          <div class="key division space">÷</div>
+          <div class="key functions">functions</div><br><br>
+          <div class="key dual">(</div>
+          <div class="key dual">)</div>
+          <div class="key dual"><</div>
+          <div class="key dual space">></div>
+          <div class="key num">4</div>
+          <div class="key num">5</div>
+          <div class="key num">6</div>
+          <div class="key mul space">×</div>
+          <div class="key leftarrow">←</div>
+          <div class="key rightarrow">→</div><br><br>
+          <div class="key mod">|a|</div>
+          <div class="key dual">,</div>
+          <div class="key dual">≤</div>
+          <div class="key dual space">≥</div>
+          <div class="key num">1</div>
+          <div class="key num">2</div>
+          <div class="key num">3</div>
+          <div class="key sub space">-</div>
+          <div class="key backspace">⌫</div><br><br>
+          <div class="key letter">ABC</div>
+          <div class="key sound">🔊</div>
+          <div class="key root">√</div>
+          <div class="key pi space">π</div>
+          <div class="key num">0</div>
+          <div class="key dot">.</div>
+          <div class="key equal">=</div>
+          <div class="key plus space">+</div>
+          <div class="key leftcurvedarrow">&#11176;</div> -->
+        <div class="line5">
+          <button class="btn btn-light mt-1 border">x</button>
+          <button class="btn btn-light mt-1 border">y</button>
+          <button class="btn btn-light mt-1 border">a<sup>2</sup></button>
+          <button class="btn btn-light mt-1 border space1">a<sup>b</sup></button>
+          <button class="btn btn-light mt-1 border" id="numbers">7</button>
+          <button class="btn btn-light mt-1 border" id="numbers">8</button>
+          <button class="btn btn-light mt-1 border" id="numbers">9</button>
+          <button class="btn btn-light mt-1 border space5">÷</button>
+          <button class="btn btn-light mt-1 border" id="functions">functions</button>
+        </div>
+        <div class="line6">
+          <button class="btn btn-light mt-1 border">(</button>
+          <button class="btn btn-light mt-1 border">)</button>
+          <button class="btn btn-light mt-1 border"><</button>
+          <button class="btn btn-light mt-1 border space2">></button>
+          <button class="btn btn-light mt-1 border" id="numbers">4</button>
+          <button class="btn btn-light mt-1 border" id="numbers">5</button>
+          <button class="btn btn-light mt-1 border" id="numbers">6</button>
+          <button class="btn btn-light mt-1 border space6">×</button>
+          <button class="btn btn-light mt-1 border" id="leftarrow">←</button>
+          <button class="btn btn-light mt-1 border" id="rightarrow">→</button>
+        </div>
+        <div class="line7">
+          <button class="btn btn-light mt-1 border">|a|</button>
+          <button class="btn btn-light mt-1 border">,</button>
+          <button class="btn btn-light mt-1 border">≤</button>
+          <button class="btn btn-light mt-1 border space3">≥</button>
+          <button class="btn btn-light mt-1 border" id="numbers">1</button>
+          <button class="btn btn-light mt-1 border" id="numbers">2</button>
+          <button class="btn btn-light mt-1 border" id="numbers">3</button>
+          <button class="btn btn-light mt-1 border space7">-</button>
+          <button class="btn btn-light mt-1 border" id="back">⌫</button>
+        </div>
+        <div class="line8">
+          <button class="btn btn-light mt-1 border" id="alphabet">ABC</button>
+          <button class="btn btn-light mt-1 border" id="sound">🔊</button>
+          <button class="btn btn-light mt-1 border">√</button>
+          <button class="btn btn-light mt-1 border space4">π</button>
+          <button class="btn btn-light mt-1 border" id="numbers">0</button>
+          <button class="btn btn-light mt-1 border" id="numbers">.</button>
+          <button class="btn btn-light mt-1 border">=</button>
+          <button class="btn btn-light mt-1 border space8">+</button>
+          <button class="btn btn-primary mt-1 border">&#11176;</button>
+        </div>
+        <!-- <div class="line1">
+          <button class="btn btn-light border">q</button>
+          <button class="btn btn-light border">w</button>
+          <button class="btn btn-light border">e</button>
+          <button class="btn btn-light border">r</button>
+          <button class="btn btn-light border">t</button>
+          <button class="btn btn-light border">y</button>
+          <button class="btn btn-light border">u</button>
+          <button class="btn btn-light border">i</button>
+          <button class="btn btn-light border">o</button>
+          <button class="btn btn-light border">p</button>
+        </div>
+        <div class="line2">
+          <button class="btn btn-light mt-1 border">a</button>
+          <button class="btn btn-light mt-1 border">s</button>
+          <button class="btn btn-light mt-1 border">d</button>
+          <button class="btn btn-light mt-1 border">f</button>
+          <button class="btn btn-light mt-1 border">g</button>
+          <button class="btn btn-light mt-1 border">h</button>
+          <button class="btn btn-light mt-1 border">j</button>
+          <button class="btn btn-light mt-1 border">k</button>
+          <button class="btn btn-light mt-1 border">l</button>
+          <button class="btn btn-light mt-1 border">0</button>
+        </div>
+        <div class="line3">
+          <button class="btn btn-light mt-1 border" id="capslock">⇪</button>
+          <button class="btn btn-light mt-1 border">z</button>
+          <button class="btn btn-light mt-1 border">x</button>
+          <button class="btn btn-light mt-1 border">c</button>
+          <button class="btn btn-light mt-1 border">v</button>
+          <button class="btn btn-light mt-1 border">b</button>
+          <button class="btn btn-light mt-1 border">u</button>
+          <button class="btn btn-light mt-1 border">n</button>
+          <button class="btn btn-light mt-1 border">m</button>
+          <button class="btn btn-light mt-1 border" id="backspace">⌫</button>
+        </div>
+        <div class="line4">
+          <button class="btn btn-light mt-1 border" id="number">123</button>
+          <button class="btn btn-light mt-1 border">
+            a<sub>b</sub>
+          </button>
+          <button class="btn btn-light mt-1 border">!<sup> %</sup></button>
+          <button class="btn btn-light mt-1 border">[ ]</button>
+          <button class="btn btn-light mt-1 border">{ }</button>
+          <button class="btn btn-light mt-1 border">~ <sup> :</sup></button>
+          <button class="btn btn-light mt-1 border">,<sup> '</sup></button>
+          <button class="btn btn-primary mt-1 border" id="leftcurvedarrow">&#11176;</button>
+        </div> -->
+      </div>
+    </div>
+    <button type="button" class="btn btn-light border" id="keybordbtn">
+      <span
+        class="bi bi-keyboard"
+        onclick="keybordopenNav()"
+        style="cursor: pointer"
+      ></span>
+    </button>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="desmos.js"></script> -->
+    <script>
+      function keybordopenNav() {
+        document.getElementById("myNav").style.height = "43%";
+      }
+      function KeybordcloseNav() {
+        document.getElementById("myNav").style.height = "0%";
+      }
+    </script>
+  </body>
+</html>

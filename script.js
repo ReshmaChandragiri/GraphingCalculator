@@ -2,7 +2,6 @@
 window.addEventListener('load', () => {
   const canvas = document.getElementById('canvas');
   const context = canvas.getContext('2d');
-
   // Clear canvas
   context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -108,8 +107,11 @@ window.addEventListener('load', () => {
 
 
 
+
+
+
   // Plot parabolic graph
-  
+
   let maxX = 100;
   let minX = -100;
   const scale = canvas.width / (maxX - minX);
@@ -117,11 +119,11 @@ window.addEventListener('load', () => {
   context.beginPath();
   context.strokeStyle = 'black';
   context.lineWidth = 2;
- let expr='2*x';
+  let expression = 'x*x';
 
   for (let x = minX; x <= maxX; x += 0.1) {
-     
-     const y=eval(expr);
+
+    const y = eval(expression);
     const mappedX = canvas.width / 2 + x * scale;
     const mappedY = canvas.height / 2 - y * scale;
 
