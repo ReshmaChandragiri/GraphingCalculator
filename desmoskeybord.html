@@ -75,7 +75,7 @@
       .sidenav .header #closebtn {
         margin-right: 6px;
       }
-      /* .line1 .btn{
+       .line1 .btn{
         padding: 7px 40px;
       }
       .line2 .btn{
@@ -110,7 +110,7 @@
       }
       #leftcurvedarrow{
         width: 158px;
-      } */
+      } 
       .line5 .btn{
         padding: 7px 40px;
       }
@@ -185,6 +185,35 @@
           right: 35px;
         }
       }
+    
+    #SwitchNum{
+      position: relative;
+      top:5px;
+      padding: 7px 40px;
+      background-color: #d3cfcf;
+      border-radius: 5px;
+      height: 40px;
+      
+    }
+    #SwitchNum:hover{
+      background-color: #c7c3c3;;
+      }
+      #SwitchAlpha{
+      position: relative;
+      top:5px;
+      height: 40px;
+      padding: 7px 42px;
+      background-color: #d3cfcf;
+      border-radius: 5px;
+     
+      }
+      #SwitchAlpha:hover{
+        background-color: #c7c3c3;;
+      }
+      #alphabeticKeys {
+      display: none;
+    }
+      
     </style>
   </head>
   <body>
@@ -215,6 +244,7 @@
           >&times;</a
         >
         <div class="overlay-content">
+          <div id="numericKeys">
         <div class="line5">
           <button class="btn btn-light mt-1 border">x</button>
           <button class="btn btn-light mt-1 border">y</button>
@@ -250,7 +280,7 @@
           <button class="btn btn-light mt-1 border" id="back">⌫</button>
         </div>
         <div class="line8">
-          <button class="btn btn-light mt-1 border" id="alphabet">ABC</button>
+          <button class="btns btn-light mt-1 border" onclick="switchKeys()" id="SwitchNum">ABC</button>
           <button class="btn btn-light mt-1 border" id="sound">🔊</button>
           <button class="btn btn-light mt-1 border">√</button>
           <button class="btn btn-light mt-1 border space4">π</button>
@@ -260,7 +290,9 @@
           <button class="btn btn-light mt-1 border space8">+</button>
           <button class="btn btn-primary mt-1 border">&#11176;</button>
         </div>
-        <!-- <div class="line1">
+        </div>
+        <div id="alphabeticKeys">
+         <div class="line1">
           <button class="btn btn-light border">q</button>
           <button class="btn btn-light border">w</button>
           <button class="btn btn-light border">e</button>
@@ -297,7 +329,7 @@
           <button class="btn btn-light mt-1 border" id="backspace">⌫</button>
         </div>
         <div class="line4">
-          <button class="btn btn-light mt-1 border" id="number">123</button>
+          <button class="btns btn-light mt-1 border" onclick="switchKeys()" id="SwitchAlpha">123</button>
           <button class="btn btn-light mt-1 border">
             a<sub>b</sub>
           </button>
@@ -307,7 +339,8 @@
           <button class="btn btn-light mt-1 border">~ <sup> :</sup></button>
           <button class="btn btn-light mt-1 border">,<sup> '</sup></button>
           <button class="btn btn-primary mt-1 border" id="leftcurvedarrow">&#11176;</button>
-        </div> -->
+        </div>
+      </div>
       </div>
     </div>
       <button type="button" class="btn btn-light border" id="keybordbtn">
@@ -353,6 +386,19 @@
       function KeybordcloseNav() {
         document.getElementById("myNav").style.height = "0%";
       }
+
+      function switchKeys() {
+      var alphabeticKeys = document.getElementById("alphabeticKeys");
+      var numericKeys = document.getElementById("numericKeys");
+
+      if (alphabeticKeys.style.display == "none") {
+        alphabeticKeys.style.display = "block";
+        numericKeys.style.display = "none";
+      } else {
+        alphabeticKeys.style.display = "none";
+        numericKeys.style.display = "block";
+      }
+    }
       // function keybordNav() {
       //   document.getElementById("mySidenav").style.height = "0%";
       // }
