@@ -36,7 +36,19 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 document.getElementById("cal-display").addEventListener('focus',function(){
   keybordopenNav();
-})
+});
+function switchKeys() {
+  var alphabeticKeys = document.getElementById("alphabeticKeys");
+  var numericKeys = document.getElementById("numericKeys");
+
+  if (alphabeticKeys.style.display == "none") {
+    alphabeticKeys.style.display = "block";
+    numericKeys.style.display = "none";
+  } else {
+    alphabeticKeys.style.display = "none";
+    numericKeys.style.display = "block";
+  }
+}
 function openNav() {
   document.getElementById("mySidenav").style.width = "415px";
 }

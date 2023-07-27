@@ -56,7 +56,7 @@
   .sidenav .header #closebtn {
     margin-right: 6px;
   }
-  /* .line1 .btn{
+  .line1 .btn{
     padding: 7px 40px;
   }
   .line2 .btn{
@@ -66,7 +66,7 @@
     padding: 7px 38.5px;
   }
   .line4 .btn{
-    padding: 7px 40px;
+    padding: 7px 43.5px;
   }
   #number{
     background-color: #d3cfcf;
@@ -91,7 +91,7 @@
   }
   #leftcurvedarrow{
     width: 158px;
-  } */
+  }
   .line5 .btn{
     padding: 7px 40px;
   }
@@ -145,6 +145,33 @@
   }
   #sound:hover{
     background-color: #c7c3c3;;
+  }
+  #SwitchNum{
+    position: relative;
+    top:5px;
+    padding: 7px 40px;
+    background-color: #d3cfcf;
+    border-radius: 5px;
+    height: 40px;
+    
+  }
+  #SwitchNum:hover{
+    background-color: #c7c3c3;;
+    }
+    #SwitchAlpha{
+    position: relative;
+    top:5px;
+    height: 40px;
+    padding: 7px 45px;
+    background-color: #d3cfcf;
+    border-radius: 5px;
+   
+    }
+    #SwitchAlpha:hover{
+      background-color: #c7c3c3;;
+    }
+    #alphabeticKeys {
+    display: none;
   }
 
   @media screen and (max-height: 450px) {
