@@ -8,6 +8,16 @@ document.addEventListener("DOMContentLoaded",function(){
             if(value=='⌫'){
                 backSpace();
             }
+            else if(value=='a2'){
+              if(display.value=='x'||display.value=='y'){
+              currentValue=display.value+'2';
+              display.value=currentValue;
+             }
+            else{
+              currentValue=display.value*display.value;
+              display.value=currentValue;
+            }
+          }
             else{
             currentValue +=value;
             display.value = currentValue;
@@ -24,3 +34,21 @@ document.addEventListener("DOMContentLoaded",function(){
         });
     }
 });
+document.getElementById("cal-display").addEventListener('focus',function(){
+  keybordopenNav();
+})
+function openNav() {
+  document.getElementById("mySidenav").style.width = "415px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("myNav").style.height = "0%";
+}
+
+function keybordopenNav() {
+  document.getElementById("myNav").style.height = "35%";
+}
+function KeybordcloseNav() {
+  document.getElementById("myNav").style.height = "0%";
+}

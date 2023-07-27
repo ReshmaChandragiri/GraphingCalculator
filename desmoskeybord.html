@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- <link rel="stylesheet" href="desmos.css"> -->
+    <link rel="stylesheet" href="desmos.css">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
@@ -15,177 +15,6 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
-    <style>
-        #keybordbtn {
-        position: absolute;
-        bottom: 5px;
-        left: 5px;
-        /* padding: 7px 40px; */
-      }
-      .overlay {
-        height: 0%;
-        width: 100%;
-        position: fixed;
-        z-index: 1;
-        bottom: 0;
-        left: 0;
-        background-color: whitesmoke;
-        overflow-y: hidden;
-        transition: 0.5s;
-      }
-
-      .overlay a {
-        padding: 8px;
-        text-decoration: none;
-        font-size: 36px;
-        color: #a4a1a1;
-        display: block;
-        transition: 0.3s;
-      }
-
-      .overlay .closebtn {
-        position: absolute;
-        top: 0;
-        right: 5px;
-        font-size: 20px;
-      }
-      .overlay-content {
-        position: relative;
-        top: 11%;
-        text-align: center;
-        margin-top: 0; 
-      }
-
-      .sidenav {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: white;
-        overflow-x: hidden;
-        transition: 0.5s;
-      }
-      
-      .sidenav .header {
-        background-color: whitesmoke;
-        height: 52px;
-      }
-      .sidenav .header #closebtn {
-        margin-right: 6px;
-      }
-      /* .line1 .btn{
-        padding: 7px 40px;
-      }
-      .line2 .btn{
-        padding: 7px 40px;
-      }
-      .line3 .btn{
-        padding: 7px 38.5px;
-      }
-      .line4 .btn{
-        padding: 7px 40px;
-      }
-      #number{
-        background-color: #d3cfcf;
-        width: 158px;
-      }
-      #number:hover{
-        background-color: #c7c3c3;;
-      }
-      #capslock{
-        background-color: #d3cfcf;
-        color: black;
-        font-size: 16px;
-      }
-      #capslock:hover{
-        background-color: #c7c3c3;;
-      }
-      #backspace{
-        background-color: #d3cfcf;
-      }
-      #backspace:hover{
-        background-color: #c7c3c3;;
-      }
-      #leftcurvedarrow{
-        width: 158px;
-      } */
-      .line5 .btn{
-        padding: 7px 40px;
-      }
-      .line6 .btn{
-        padding: 7px 38px;
-      }
-      .line7 .btn{
-        padding: 7px 42.8px;
-      }
-      .line8 .btn{
-        padding: 7px 41.2px;
-      }
-      #numbers{
-        background-color: #d3cfcf;
-      }
-      #numbers:hover{
-        background-color: #c7c3c3;;
-      }
-      #functions{
-        background-color: #d3cfcf;
-      }
-      #functions:hover{
-        background-color: #c7c3c3;;
-      }
-      #leftarrow{
-        background-color: #d3cfcf;
-      }
-      #leftarrow:hover{
-        background-color: #c7c3c3;;
-      }
-      #rightarrow{
-        background-color: #d3cfcf;
-      }
-      #rightarrow:hover{
-        background-color: #c7c3c3;;
-      }
-      #back{
-        background-color: #d3cfcf;
-      }
-      #back:hover{
-        background-color: #c7c3c3;;
-      }
-      #alphabet{
-        background-color: #d3cfcf;
-      }
-      #alphabet:hover{
-        background-color: #c7c3c3;;
-      }
-      #sound{
-        background-color: #d3cfcf;
-      }
-      #sound:hover{
-        background-color: #c7c3c3;;
-      }
-
-      @media screen and (max-height: 450px) {
-        .sidenav {
-          padding-top: 15px;
-        }
-        .sidenav .header #closebtn #close {
-          font-size: 18px;
-        }
-        .overlay {
-          overflow-y: auto;
-        }
-        .overlay a {
-          font-size: 20px;
-        }
-        .overlay .closebtn {
-          font-size: 40px;
-          top: 15px;
-          right: 35px;
-        }
-      }
-    </style>
   </head>
   <body>
     <div id="mySidenav" class="sidenav">
@@ -317,10 +146,6 @@
           style="cursor: pointer"
         ></span>
       </button>
-         <!-- <button type="button" class="btn btn-light" id="keybordclosebtn">
-                <span class="bi bi-chevron-double-left" onclick="keybordcloseNav()" id="keybordclose" style="cursor:pointer;"></span>
-            </button> -->
-      
     </div>
     <button type="button" class="btn btn-light">
       <span
@@ -335,27 +160,5 @@
       crossorigin="anonymous"
     ></script>
     <script src="keyboard.js"></script>
-    <script>
-      function openNav() {
-        document.getElementById("mySidenav").style.width = "415px";
-      }
-
-      function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-      }
-
-      function keybordNav() {
-        document.getElementById("mySidenav").style.height = "60%";
-      }
-      function keybordopenNav() {
-        document.getElementById("myNav").style.height = "35%";
-      }
-      function KeybordcloseNav() {
-        document.getElementById("myNav").style.height = "0%";
-      }
-      // function keybordNav() {
-      //   document.getElementById("mySidenav").style.height = "0%";
-      // }
-    </script>
   </body>
 </html>
