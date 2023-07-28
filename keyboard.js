@@ -1,40 +1,37 @@
-document.addEventListener("DOMContentLoaded",function(){
-    var display = document.getElementById("cal-display");
-    var buttons = document.getElementsByClassName("btn");
-    let currentValue = "";
-    for(let button of buttons){
-        button.addEventListener("click", function(){
-            const value = button.innerText;
-            if(value=='⌫'){
-                backSpace();
-            }
-            else if(value=='a2'){
-              if(display.value=='x'||display.value=='y'){
-              currentValue=display.value+'2';
-              display.value=currentValue;
-             }
-            else{
-              currentValue=display.value*display.value;
-              display.value=currentValue;
-            }
-          }
-            else{
-            currentValue +=value;
-            display.value = currentValue;
-            }
-            function backSpace() {
-                if (display.value.length > 1) {
-                  display.value = display.value.substring(0, display.value.length - 1);
-                  currentValue = display.value;
-                } else {
-                  currentValue = "";
-                  display.value = 0;
-                }
-              }
-        });
-    }
+document.addEventListener("DOMContentLoaded", function () {
+  var display = document.getElementById("cal-display");
+  var buttons = document.getElementsByClassName("btn");
+  let currentValue = "";
+  for (let button of buttons) {
+    button.addEventListener("click", function () {
+      const value = button.innerText;
+      if (value == "⌫") {
+        backSpace();
+      } else if (value == "a2") {
+        if (display.value == "x" || display.value == "y") {
+          currentValue = display.value + "2";
+          display.value = currentValue;
+        } else {
+          currentValue = display.value * display.value;
+          display.value = currentValue;
+        }
+      } else {
+        currentValue += value;
+        display.value = currentValue;
+      }
+      function backSpace() {
+        if (display.value.length > 1) {
+          display.value = display.value.substring(0, display.value.length - 1);
+          currentValue = display.value;
+        } else {
+          currentValue = "";
+          display.value = 0;
+        }
+      }
+    });
+  }
 });
-document.getElementById("cal-display").addEventListener('focus',function(){
+document.getElementById("cal-display").addEventListener("focus", function () {
   keybordopenNav();
 });
 function switchKeys() {
@@ -47,6 +44,18 @@ function switchKeys() {
   } else {
     alphabeticKeys.style.display = "none";
     numericKeys.style.display = "block";
+  }
+}
+function capslockKeys() {
+  var capsAlphabeticKeys = document.getElementById("capsAlphabeticKeys");
+  var alphabeticKeys = document.getElementById("alphabeticKeys");
+
+  if(capsAlphabeticKeys.style.display == "none"){
+    capsAlphabeticKeys.style.display = "block";
+    alphabeticKeys.style.display = "none";
+  }else{
+    capsAlphabeticKeys.style.display = "none";
+    alphabeticKeys.style.display = "block";
   }
 }
 function openNav() {

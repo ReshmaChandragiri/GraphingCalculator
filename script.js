@@ -119,7 +119,7 @@ window.addEventListener('load', () => {
   context.beginPath();
   context.strokeStyle = 'black';
   context.lineWidth = 2;
-  let expression = 'x*x+10*x';
+  let expression = 'x*x';
 
   for (let x = minX; x <= maxX; x += 0.1) {
 

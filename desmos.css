@@ -1,195 +1,240 @@
 #keybordbtn {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(245, 245, 245);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #a4a1a1;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  font-size: 20px;
+}
+.overlay-content {
+  position: relative;
+  top: 11%;
+  text-align: center;
+  margin-top: 0;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.sidenav .header {
+  background-color: whitesmoke;
+  height: 52px;
+}
+.sidenav .header #closebtn {
+  margin-right: 6px;
+}
+.line1 .btn {
+  padding: 7px 40px;
+}
+.line2 .btn {
+  padding: 7px 40.3px;
+}
+.line3 .btn {
+  padding: 7px 40.5px;
+}
+.line4 .btn {
+  padding: 7px 43.9px;
+}
+.line9 .btn {
+  padding: 7px 41px;
+}
+.line10 .btn {
+  padding: 7px 45.3px;
+}
+#number {
+  background-color: #d3cfcf;
+  width: 158px;
+}
+#number:hover {
+  background-color: #c7c3c3;
+}
+#capslock {
+  position: relative;
+  top: 3px;
+  padding: 7px 40px;
+  background-color: #d3cfcf;
+  border-radius: 5px;
+  height: 40px;
+  width: 128px;
+  /* background-color: #d3cfcf;
+  width: 128px;
+  color: black;
+  font-size: 16px; */
+}
+#capslock:hover {
+  background-color: #c7c3c3;
+}
+#capslockCaps{
+  position: relative;
+  top: 3px;
+  padding: 7px 40px;
+  background-color: #d3cfcf;
+  border-radius: 5px;
+  height: 40px;
+  width: 128px;
+}
+#capslockCaps:hover {
+  background-color: #c7c3c3;
+}
+#backspace {
+  background-color: #d3cfcf;
+  width: 128px;
+}
+#backspace:hover {
+  background-color: #c7c3c3;
+}
+#leftcurvedarrow {
+  width: 158px;
+}
+.line5 .btn {
+  padding: 7px 40px;
+}
+.line6 .btn {
+  padding: 7px 38px;
+}
+.line7 .btn {
+  padding: 7px 42.8px;
+}
+.line8 .btn {
+  padding: 7px 41.5px;
+}
+#numbers {
+  background-color: #d3cfcf;
+}
+#numbers:hover {
+  background-color: #c7c3c3;
+}
+#functions {
+  background-color: #d3cfcf;
+}
+#functions:hover {
+  background-color: #c7c3c3;
+}
+#leftarrow {
+  background-color: #d3cfcf;
+}
+#leftarrow:hover {
+  background-color: #c7c3c3;
+}
+#rightarrow {
+  background-color: #d3cfcf;
+}
+#rightarrow:hover {
+  background-color: #c7c3c3;
+}
+#back {
+  background-color: #d3cfcf;
+}
+#back:hover {
+  background-color: #c7c3c3;
+}
+#alphabet {
+  background-color: #d3cfcf;
+}
+#alphabet:hover {
+  background-color: #c7c3c3;
+}
+#sound {
+  background-color: #d3cfcf;
+}
+#sound:hover {
+  background-color: #c7c3c3;
+}
+#SwitchNum {
+  position: relative;
+  top: 3px;
+  padding: 7px 40px;
+  background-color: #d3cfcf;
+  border-radius: 5px;
+  height: 40px;
+}
+#SwitchNum:hover {
+  background-color: #c7c3c3;
+}
+#SwitchAlpha {
+  position: relative;
+  top: 3px;
+  height: 38px;
+  padding: 7px 45px;
+  background-color: #d3cfcf;
+  border-radius: 5px;
+}
+#SwitchAlpha:hover {
+  background-color: #c7c3c3;
+}
+#alphabeticKeys {
+  display: none;
+}
+#capsAlphabeticKeys{
+  display: none;
+}
+
+canvas {
+  border: 1px solid black;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#canvas {
+  position: absolute;
+  right: 0;
+  top: 0;
+  pointer-events: none;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav .header #closebtn #close {
+    font-size: 18px;
   }
   .overlay {
-    height: 0%;
-    width: 100%;
-    position: fixed;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    background-color: rgb(245, 245, 245);
-    overflow-y: hidden;
-    transition: 0.5s;
+    overflow-y: auto;
   }
-
   .overlay a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color: #a4a1a1;
-    display: block;
-    transition: 0.3s;
-  }
-
-  .overlay .closebtn {
-    position: absolute;
-    top: 0;
-    right: 5px;
     font-size: 20px;
   }
-  .overlay-content {
-    position: relative;
-    top: 11%;
-    text-align: center;
-    margin-top: 0; 
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
   }
-
-  .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: white;
-    overflow-x: hidden;
-    transition: 0.5s;
-  }
-  
-  .sidenav .header {
-    background-color: whitesmoke;
-    height: 52px;
-  }
-  .sidenav .header #closebtn {
-    margin-right: 6px;
-  }
-  .line1 .btn{
-    padding: 7px 40px;
-  }
-  .line2 .btn{
-    padding: 7px 40px;
-  }
-  .line3 .btn{
-    padding: 7px 38.5px;
-  }
-  .line4 .btn{
-    padding: 7px 43.5px;
-  }
-  #number{
-    background-color: #d3cfcf;
-    width: 158px;
-  }
-  #number:hover{
-    background-color: #c7c3c3;;
-  }
-  #capslock{
-    background-color: #d3cfcf;
-    color: black;
-    font-size: 16px;
-  }
-  #capslock:hover{
-    background-color: #c7c3c3;;
-  }
-  #backspace{
-    background-color: #d3cfcf;
-  }
-  #backspace:hover{
-    background-color: #c7c3c3;;
-  }
-  #leftcurvedarrow{
-    width: 158px;
-  }
-  .line5 .btn{
-    padding: 7px 40px;
-  }
-  .line6 .btn{
-    padding: 7px 38px;
-  }
-  .line7 .btn{
-    padding: 7px 42.8px;
-  }
-  .line8 .btn{
-    padding: 7px 41.2px;
-  }
-  #numbers{
-    background-color: #d3cfcf;
-  }
-  #numbers:hover{
-    background-color: #c7c3c3;;
-  }
-  #functions{
-    background-color: #d3cfcf;
-  }
-  #functions:hover{
-    background-color: #c7c3c3;;
-  }
-  #leftarrow{
-    background-color: #d3cfcf;
-  }
-  #leftarrow:hover{
-    background-color: #c7c3c3;;
-  }
-  #rightarrow{
-    background-color: #d3cfcf;
-  }
-  #rightarrow:hover{
-    background-color: #c7c3c3;;
-  }
-  #back{
-    background-color: #d3cfcf;
-  }
-  #back:hover{
-    background-color: #c7c3c3;;
-  }
-  #alphabet{
-    background-color: #d3cfcf;
-  }
-  #alphabet:hover{
-    background-color: #c7c3c3;;
-  }
-  #sound{
-    background-color: #d3cfcf;
-  }
-  #sound:hover{
-    background-color: #c7c3c3;;
-  }
-  #SwitchNum{
-    position: relative;
-    top:5px;
-    padding: 7px 40px;
-    background-color: #d3cfcf;
-    border-radius: 5px;
-    height: 40px;
-    
-  }
-  #SwitchNum:hover{
-    background-color: #c7c3c3;;
-    }
-    #SwitchAlpha{
-    position: relative;
-    top:5px;
-    height: 40px;
-    padding: 7px 45px;
-    background-color: #d3cfcf;
-    border-radius: 5px;
-   
-    }
-    #SwitchAlpha:hover{
-      background-color: #c7c3c3;;
-    }
-    #alphabeticKeys {
-    display: none;
-  }
-
-  @media screen and (max-height: 450px) {
-    .sidenav {
-      padding-top: 15px;
-    }
-    .sidenav .header #closebtn #close {
-      font-size: 18px;
-    }
-    .overlay {
-      overflow-y: auto;
-    }
-    .overlay a {
-      font-size: 20px;
-    }
-    .overlay .closebtn {
-      font-size: 40px;
-      top: 15px;
-      right: 35px;
-    }
-  }
+}
