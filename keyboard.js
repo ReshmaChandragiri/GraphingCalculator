@@ -1,21 +1,29 @@
+
 document.addEventListener("DOMContentLoaded", function () {
   var display = document.getElementById("cal-display");
   var buttons = document.getElementsByClassName("btn");
   let currentValue = "";
+
   for (let button of buttons) {
     button.addEventListener("click", function () {
       const value = button.innerText;
+
       if (value == "⌫") {
         backSpace();
-      } else if (value == "a2") {
-        if (display.value == "x" || display.value == "y") {
-          currentValue = display.value + "2";
-          display.value = currentValue;
-        } else {
-          currentValue = display.value * display.value;
-          display.value = currentValue;
-        }
-      } else {
+      }
+      else if (value == 'a2') {
+        var exponent = "\u00B2";
+        currentValue = display.value + exponent;
+        display.value = currentValue;
+      } else if (value == '×') {
+        currentValue = display.value + "*"
+        display.value = currentValue;
+
+      } else if (value == 'Graph') {
+
+      }
+
+      else {
         currentValue += value;
         display.value = currentValue;
       }
@@ -28,12 +36,16 @@ document.addEventListener("DOMContentLoaded", function () {
           display.value = 0;
         }
       }
+
     });
   }
 });
+
+
 document.getElementById("cal-display").addEventListener("focus", function () {
   keybordopenNav();
 });
+
 function switchKeys() {
   var alphabeticKeys = document.getElementById("alphabeticKeys");
   var numericKeys = document.getElementById("numericKeys");
@@ -50,10 +62,10 @@ function capslockKeys() {
   var capsAlphabeticKeys = document.getElementById("capsAlphabeticKeys");
   var alphabeticKeys = document.getElementById("alphabeticKeys");
 
-  if(capsAlphabeticKeys.style.display == "none"){
+  if (capsAlphabeticKeys.style.display == "none") {
     capsAlphabeticKeys.style.display = "block";
     alphabeticKeys.style.display = "none";
-  }else{
+  } else {
     capsAlphabeticKeys.style.display = "none";
     alphabeticKeys.style.display = "block";
   }
