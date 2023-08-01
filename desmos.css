@@ -3,6 +3,11 @@
   bottom: 5px;
   left: 5px;
 }
+#openNav{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
 .overlay {
   height: 0%;
   width: 100%;
@@ -129,7 +134,7 @@
   padding: 7px 42.8px;
 }
 .line8 .btn {
-  padding: 7px 41.5px;
+  padding: 7px 39.5px;
 }
 #numbers {
   background-color: #d3cfcf;

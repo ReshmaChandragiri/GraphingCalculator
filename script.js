@@ -10,7 +10,6 @@ window.addEventListener('load', () => {
   const gridSize = 20;
 
   let graphB=document.getElementById('Graph');
-  let graphClear=document.getElementById('functions');
   let display=document.getElementById('cal-display');
 
   // Draw grid lines
@@ -139,11 +138,6 @@ window.addEventListener('load', () => {
   }
 
   context.stroke();
-  });
-
-  graphClear.addEventListener('click',function(){
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    console.log("**********************");
   });
 
 });
