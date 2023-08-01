@@ -9,6 +9,10 @@ window.addEventListener('load', () => {
   const originY = canvas.height / 2;
   const gridSize = 20;
 
+  let graphB=document.getElementById('Graph');
+  let graphClear=document.getElementById('functions');
+  let display=document.getElementById('cal-display');
+
   // Draw grid lines
   context.strokeStyle = '#ccc';
   context.lineWidth = 1;
@@ -111,15 +115,15 @@ window.addEventListener('load', () => {
 
 
   // Plot parabolic graph
-
+  graphB.addEventListener('click',function(){
   let maxX = 100;
   let minX = -100;
   const scale = canvas.width / (maxX - minX);
 
   context.beginPath();
-  context.strokeStyle = 'black';
+  context.strokeStyle = 'green';
   context.lineWidth = 2;
-  let expression = 'x*x';
+  let expression = display.value;
 
   for (let x = minX; x <= maxX; x += 0.1) {
 
@@ -135,5 +139,11 @@ window.addEventListener('load', () => {
   }
 
   context.stroke();
+  });
+
+  graphClear.addEventListener('click',function(){
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    console.log("**********************");
+  });
 
 });

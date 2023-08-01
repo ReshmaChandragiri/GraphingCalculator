@@ -8,14 +8,17 @@ document.addEventListener("DOMContentLoaded", function () {
       if (value == "⌫") {
         backSpace();
       } else if (value == "a2") {
-        if (display.value == "x" || display.value == "y") {
-          currentValue = display.value + "2";
-          display.value = currentValue;
-        } else {
-          currentValue = display.value * display.value;
-          display.value = currentValue;
-        }
-      } else {
+        var exponent = "\u00B2";
+        currentValue = display.value + exponent;
+        display.value=currentValue;
+      } else if(value == "Graph"){
+
+      }else if(value == "×"){
+        currentValue = display.value + "*";
+        display.value = currentValue;
+      }else if(value == "functions"){
+        
+      }else {
         currentValue += value;
         display.value = currentValue;
       }
