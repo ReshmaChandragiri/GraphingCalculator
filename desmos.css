@@ -8,6 +8,15 @@
   top: 5px;
   left: 5px;
 }
+#cal-display{
+  cursor: pointer;
+}
+#inputclear{
+  color: rgb(209, 215, 219);
+}
+#inputclear:hover{
+  color: #535151;
+}
 .overlay {
   height: 0%;
   width: 100%;
@@ -121,7 +130,7 @@
 #backspace:hover {
   background-color: #c7c3c3;
 }
-#leftcurvedarrow {
+.leftcurvedarrow {
   width: 158px;
 }
 .line5 .btn {

@@ -21,8 +21,9 @@
 
     <div class="input-group input-group-lg">
       <span class="input-group-text" id="inputGroup-sizing-lg">1</span>
-      <input id="cal-display" readonly type="text" class="form-control" aria-label="Sizing example input"
+      <input id="cal-display" type="text" class="form-control" aria-label="Sizing example input"
         aria-describedby="inputGroup-sizing-lg" />
+        <button class="btn btn-light" id="inputclear">🗙</button>
     </div>
     <div id="myNav" class="overlay">
       <a href="javascript:void(0)" class="closebtn" onclick="KeybordcloseNav()">&times;</a>
@@ -134,7 +135,7 @@
             <button class="btn btn-light border">{ }</button>
             <button class="btn btn-light border">~ <sup> :</sup></button>
             <button class="btn btn-light border">,<sup> '</sup></button>
-            <button class="btn btn-primary border" id="leftcurvedarrow">
+            <button class="btn btn-primary border leftcurvedarrow">
               Graph
             </button>
           </div>
@@ -188,7 +189,7 @@
             <button class="btn btn-light border">{ }</button>
             <button class="btn btn-light border">~ <sup> :</sup></button>
             <button class="btn btn-light border">,<sup> '</sup></button>
-            <button class="btn btn-primary border" id="leftcurvedarrow">
+            <button class="btn btn-primary border leftcurvedarrow">
               Graph
             </button>
           </div>
@@ -205,7 +206,7 @@
     <span class="bi bi-chevron-double-right" onclick="openNav()" style="cursor: pointer"></span>
   </button>
   <div class="graph">
-    <canvas id="canvas" width="850" height="600"></canvas>
+    <canvas id="canvas" width="860" height="600"></canvas>
     <!-- <iframe src="desmoskeybord.html" width="100%" height="600" ></iframe> -->
     <script src="script.js"></script>
   </div>

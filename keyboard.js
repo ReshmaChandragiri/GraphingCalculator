@@ -11,6 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
       if (value == "⌫") {
         backSpace();
       }
+      else if (value == "🗙") {
+        currentValue = " ";
+        display.value = currentValue;
+      }
       else if (value == 'a2') {
         var exponent = "\u00B2";
         currentValue = display.value + exponent;
@@ -71,7 +75,7 @@ function capslockKeys() {
   }
 }
 function openNav() {
-  document.getElementById("mySidenav").style.width = "415px";
+  document.getElementById("mySidenav").style.width = "417px";
 }
 
 function closeNav() {
