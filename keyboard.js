@@ -4,6 +4,27 @@ document.addEventListener("DOMContentLoaded", function () {
   var buttons = document.getElementsByClassName("btn");
   let currentValue = "";
 
+  display.addEventListener("input", function (event) {
+    currentValue = event.target.value; // Update the current value whenever the input changes
+  });
+
+  display.addEventListener("keydown", function (event) {
+    if (event.key === "Backspace") {
+        // Update the current value when the backspace key is pressed
+        currentValue = inputField.value;
+    }
+  });
+
+  /* display.addEventListener("blur", function () {
+    // Ensure the input field value is up to date when it loses focus
+    currentValue = inputField.value;
+  });
+
+  display.addEventListener("focus", function () {
+    // Set the input field value to the current value when it gains focus
+    inputField.value = currentValue;
+  }); */
+
   for (let button of buttons) {
     button.addEventListener("click", function () {
       const value = button.innerText;
@@ -37,9 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
           currentValue = display.value;
         } else {
           currentValue = "";
-          display.value = 0;
+          display.value = "";
         }
       }
+
+      /* function backSpace() {
+        display.value="";
+        currentValue="";
+      } */
 
     });
   }
