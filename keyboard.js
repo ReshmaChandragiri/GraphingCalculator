@@ -1,75 +1,60 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   var display = document.getElementById("cal-display");
   var buttons = document.getElementsByClassName("btn");
   let currentValue = "";
-  let base = display.value;
+
+  display.addEventListener("input", function (event) {
+    currentValue = event.target.value; // Update the current value whenever the input changes
+  });
+
+  display.addEventListener("keydown", function (event) {
+    if (event.key === "Backspace") {
+      // Update the current value when the backspace key is pressed
+      currentValue = display.value;
+    }
+  });
+
+  display.addEventListener("focus", function () {
+    // Move the cursor to the end of the input field when it gains focus
+    display.setSelectionRange(display.value.length, display.value.length);
+  });
+
   for (let button of buttons) {
     button.addEventListener("click", function () {
       const value = button.innerText;
+      display.focus();
 
       if (value == "⌫") {
         backSpace();
-      }
-      else if (value == 'a2') {
+      } else if (value == "🗙") {
+        currentValue = " ";
+        display.value = currentValue;
+      } else if (value == "a2") {
         var exponent = "\u00B2";
         currentValue = display.value + exponent;
         display.value = currentValue;
-      }
-      else if (value == 'ab') {
-        // var exponent = "\u1D47";//prints variable to the power b
-        var exponent = display.value;
-        currentValue = Math.pow(Number(base), Number(exponent));
+      } else if (value == "×") {
+        currentValue = display.value + "*";
         display.value = currentValue;
-
-      }
-      else if (value == '÷') {
-        currentValue += '/';
-        display.value = currentValue;
-      }
-
-      else if (value == '×') {
-        currentValue = display.value + "*"
-        display.value = currentValue;
-
-      } else if (value == 'Graph') {
-
-      }
-      else if (value == '|a|') {
-        modulus();
-
-      }
-
-      else {
+      } else if (value == "Graph") {
+      } else {
         currentValue += value;
         display.value = currentValue;
       }
+
       function backSpace() {
         if (display.value.length > 1) {
           display.value = display.value.substring(0, display.value.length - 1);
           currentValue = display.value;
         } else {
           currentValue = "";
-          display.value = currentValue;
+          display.value = "";
         }
-      }
-      function modulus() {
-        if (display.value == ' ') {
-          currentValue = '|';
-          display.value = currentValue;
-        }
-        else {
-          currentValue = display.value + '|';
-          display.value = currentValue;
-        }
-
-
       }
 
     });
   }
 });
-
 
 document.getElementById("cal-display").addEventListener("focus", function () {
   keybordopenNav();
@@ -100,7 +85,7 @@ function capslockKeys() {
   }
 }
 function openNav() {
-  document.getElementById("mySidenav").style.width = "415px";
+  document.getElementById("mySidenav").style.width = "417px";
 }
 
 function closeNav() {
