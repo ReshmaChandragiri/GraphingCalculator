@@ -72,11 +72,11 @@ window.addEventListener("load", () => {
               expr = display.value.replace('≥', '>=');
               console.log('expr :', expr);
             }
-            else if (display.value.includes('÷')) {
-              expr = display.value.replace('÷', '/');
-              console.log('expr :', expr);
+            // else if (display.value.includes('÷')) {
+            //   expr = display.value.replace('÷', '/');
+            //   console.log('expr :', expr);
 
-            }
+            // }
 
             let expression = expr;
 

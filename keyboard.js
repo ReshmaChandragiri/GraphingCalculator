@@ -37,7 +37,12 @@ document.addEventListener("DOMContentLoaded", function () {
         currentValue = display.value + "*";
         display.value = currentValue;
       } else if (value == "Graph") {
-      } else {
+      }
+      else if (value == '÷') {
+        currentValue += '/';
+        display.value = currentValue;
+      }
+      else {
         currentValue += value;
         display.value = currentValue;
       }
