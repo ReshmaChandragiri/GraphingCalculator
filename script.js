@@ -22,10 +22,24 @@ window.addEventListener('load', () => {
       context.strokeStyle = 'green';
       context.lineWidth = 2;
 
-      let expression = display.value;
+      let expr = display.value;
+      if (display.value.includes('x²')) {
+        expr = display.value.replace('x²', 'x*x');
+        console.log('expr :', expr);
+      }
+      else if (display.value.includes('÷')) {
+        expr = display.value.replace('÷', '/');
+        console.log('expr :', expr);
+
+      }
+
+      let expression = expr;
+
+      let yvalues = [];
       for (let x = minX; x <= maxX; x += 0.1) {
 
         const y = eval(expression);
+        yvalues.push({ x: x, y: y });
         const mappedX = canvas.width / 2 + x * scale;
         const mappedY = canvas.height / 2 - y * scale;
 
@@ -35,7 +49,7 @@ window.addEventListener('load', () => {
           context.lineTo(mappedX, mappedY);
         }
       }
-
+      console.log(yvalues);
       context.stroke();
       //to replace the graph with new graph according to the input
       for (let button of buttons) {
@@ -50,10 +64,32 @@ window.addEventListener('load', () => {
             context.strokeStyle = 'green';
             context.lineWidth = 2;
 
-            let expression = display.value;
+            let expr = display.value;
+            if (display.value.includes('x²')) {
+              expr = display.value.replace('x²', 'x*x');
+              console.log('expr :', expr);
+            }
+            else if (display.value.includes('≤')) {
+              expr = display.value.replace('≤', '<=');
+              console.log('expr :', expr);
+            }
+            else if (display.value.includes('≥')) {
+              expr = display.value.replace('≥', '>=');
+              console.log('expr :', expr);
+            }
+            else if (display.value.includes('÷')) {
+              expr = display.value.replace('÷', '/');
+              console.log('expr :', expr);
+
+            }
+
+            let expression = expr;
+
+            let yvalues = [];
             for (let x = minX; x <= maxX; x += 0.1) {
 
               const y = eval(expression);
+              yvalues.push({ x: y });
               const mappedX = canvas.width / 2 + x * scale;
               const mappedY = canvas.height / 2 - y * scale;
 
@@ -63,7 +99,7 @@ window.addEventListener('load', () => {
                 context.lineTo(mappedX, mappedY);
               }
             }
-
+            console.log(yvalues);
             context.stroke();
           });
         }

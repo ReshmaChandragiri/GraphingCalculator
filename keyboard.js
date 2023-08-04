@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var display = document.getElementById("cal-display");
   var buttons = document.getElementsByClassName("btn");
   let currentValue = "";
-
+  let base = display.value;
   for (let button of buttons) {
     button.addEventListener("click", function () {
       const value = button.innerText;
@@ -15,11 +15,28 @@ document.addEventListener("DOMContentLoaded", function () {
         var exponent = "\u00B2";
         currentValue = display.value + exponent;
         display.value = currentValue;
-      } else if (value == '×') {
+      }
+      else if (value == 'ab') {
+        // var exponent = "\u1D47";//prints variable to the power b
+        var exponent = display.value;
+        currentValue = Math.pow(Number(base), Number(exponent));
+        display.value = currentValue;
+
+      }
+      else if (value == '÷') {
+        currentValue += '/';
+        display.value = currentValue;
+      }
+
+      else if (value == '×') {
         currentValue = display.value + "*"
         display.value = currentValue;
 
       } else if (value == 'Graph') {
+
+      }
+      else if (value == '|a|') {
+        modulus();
 
       }
 
@@ -33,8 +50,20 @@ document.addEventListener("DOMContentLoaded", function () {
           currentValue = display.value;
         } else {
           currentValue = "";
-          display.value = 0;
+          display.value = currentValue;
         }
+      }
+      function modulus() {
+        if (display.value == ' ') {
+          currentValue = '|';
+          display.value = currentValue;
+        }
+        else {
+          currentValue = display.value + '|';
+          display.value = currentValue;
+        }
+
+
       }
 
     });
