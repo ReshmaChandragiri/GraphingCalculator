@@ -1,30 +1,25 @@
-
-
-
-window.addEventListener('load', () => {
-
+window.addEventListener("load", () => {
   function drawGraph() {
-    const canvas = document.getElementById('canvas');
-    const context = canvas.getContext('2d');
-    const display = document.getElementById('cal-display');
-    const graphButton = document.getElementById('Graph');
-    var buttons = document.getElementsByClassName('btn');
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+    const display = document.getElementById("cal-display");
+    const graphButton = document.getElementById("Graph");
+    var buttons = document.getElementsByClassName("btn");
     // Clear canvas
     context.clearRect(0, 0, canvas.width, canvas.height);
     drawGridLines(canvas, context);
-    graphButton.addEventListener('click', function () {
+    graphButton.addEventListener("click", function () {
       // Plot parabolic graph
       let maxX = 100;
       let minX = -100;
       const scale = canvas.width / (maxX - minX);
 
       context.beginPath();
-      context.strokeStyle = 'green';
+      context.strokeStyle = "green";
       context.lineWidth = 2;
 
       let expression = display.value;
       for (let x = minX; x <= maxX; x += 0.1) {
-
         const y = eval(expression);
         const mappedX = canvas.width / 2 + x * scale;
         const mappedY = canvas.height / 2 - y * scale;
@@ -39,20 +34,19 @@ window.addEventListener('load', () => {
       context.stroke();
       //to replace the graph with new graph according to the input
       for (let button of buttons) {
-        if (button.innerText == 'Graph') {
-          button.addEventListener('click', function () {
+        if (button.innerText == "Graph") {
+          button.addEventListener("click", function () {
             // Plot parabolic graph
             let maxX = 100;
             let minX = -100;
             const scale = canvas.width / (maxX - minX);
 
             context.beginPath();
-            context.strokeStyle = 'green';
+            context.strokeStyle = "green";
             context.lineWidth = 2;
 
             let expression = display.value;
             for (let x = minX; x <= maxX; x += 0.1) {
-
               const y = eval(expression);
               const mappedX = canvas.width / 2 + x * scale;
               const mappedY = canvas.height / 2 - y * scale;
@@ -66,18 +60,14 @@ window.addEventListener('load', () => {
 
             context.stroke();
           });
-        }
-        else {
-          button.addEventListener('click', function () {
+        } else {
+          button.addEventListener("click", function () {
             context.clearRect(0, 0, canvas.width, canvas.height);
             drawGridLines(canvas, context);
           });
         }
       }
-
     });
-
-
   }
   function drawGridLines(canvas, context) {
     const originX = canvas.width / 2;
@@ -85,7 +75,7 @@ window.addEventListener('load', () => {
     const gridSize = 20;
 
     // Draw grid lines
-    context.strokeStyle = '#ccc';
+    context.strokeStyle = "#ccc";
     context.lineWidth = 1;
 
     // Vertical grid lines
@@ -122,7 +112,7 @@ window.addEventListener('load', () => {
     context.beginPath();
     context.moveTo(0, originY);
     context.lineTo(canvas.width, originY);
-    context.strokeStyle = 'black';
+    context.strokeStyle = "black";
     context.stroke();
 
     // Draw y-axis
@@ -132,9 +122,9 @@ window.addEventListener('load', () => {
     context.stroke();
 
     // Draw tick marks on x-axis
-    context.font = '10px Arial';
-    context.textAlign = 'center';
-    context.textBaseline = 'top';
+    context.font = "10px Arial";
+    context.textAlign = "center";
+    context.textBaseline = "top";
 
     for (let x = originX + gridSize; x < canvas.width; x += gridSize) {
       context.beginPath();
@@ -157,8 +147,8 @@ window.addEventListener('load', () => {
     }
 
     // Draw tick marks on y-axis
-    context.textAlign = 'right';
-    context.textBaseline = 'middle';
+    context.textAlign = "right";
+    context.textBaseline = "middle";
 
     for (let y = originY + gridSize; y < canvas.height; y += gridSize) {
       context.beginPath();
@@ -182,8 +172,4 @@ window.addEventListener('load', () => {
   }
 
   drawGraph();
-
-
-
-
 });

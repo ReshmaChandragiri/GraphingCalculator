@@ -1,219 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <link rel="stylesheet" href="desmos.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graphing Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<head>
-  <link rel="stylesheet" href="desmos.css" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Graphing Calculator</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
-</head>
+  <body>
+    <div id="mySidenav" class="sidenav">
+      <div class="header text-end">
+        <button type="button" class="btn btn-light mt-2" id="closebtn">
+          <span
+            class="bi bi-chevron-double-left"
+            onclick="closeNav()"
+            id="close"
+          ></span>
+        </button>
+      </div>
 
-<body>
-  <div id="mySidenav" class="sidenav">
-    <div class="header text-end">
-      <button type="button" class="btn btn-light mt-2" id="closebtn">
-        <span class="bi bi-chevron-double-left" onclick="closeNav()" id="close"></span>
+      <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">1</span>
+        <input
+          id="cal-display"
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-lg"
+        />
+        <button class="btn btn-light" id="inputclear">🗙</button>
+      </div>
+      <div id="myNav" class="overlay">
+        <a
+          href="javascript:void(0)"
+          class="closebtn"
+          onclick="KeybordcloseNav()"
+          >&times;</a
+        >
+        <div class="overlay-content">
+          <div id="numericKeys">
+            <div class="line5">
+              <button class="btn btn-light mt-1 border">x</button>
+              <button class="btn btn-light mt-1 border">y</button>
+              <button class="btn btn-light mt-1 border">a<sup>2</sup></button>
+              <button class="btn btn-light mt-1 border space1">
+                a<sup>b</sup>
+              </button>
+              <button class="btn btn-light mt-1 border" id="numbers">7</button>
+              <button class="btn btn-light mt-1 border" id="numbers">8</button>
+              <button class="btn btn-light mt-1 border" id="numbers">9</button>
+              <button class="btn btn-light mt-1 border space5">÷</button>
+              <button class="btn btn-light mt-1 border" id="functions">
+                functions
+              </button>
+            </div>
+            <div class="line6">
+              <button class="btn btn-light mt-1 border">(</button>
+              <button class="btn btn-light mt-1 border">)</button>
+              <button class="btn btn-light mt-1 border"><</button>
+              <button class="btn btn-light mt-1 border space2">></button>
+              <button class="btn btn-light mt-1 border" id="numbers">4</button>
+              <button class="btn btn-light mt-1 border" id="numbers">5</button>
+              <button class="btn btn-light mt-1 border" id="numbers">6</button>
+              <button class="btn btn-light mt-1 border space6">×</button>
+              <button class="btn btn-light mt-1 border" id="leftarrow">
+                ←
+              </button>
+              <button class="btn btn-light mt-1 border" id="rightarrow">
+                →
+              </button>
+            </div>
+            <div class="line7">
+              <button class="btn btn-light mt-1 border">|a|</button>
+              <button class="btn btn-light mt-1 border">,</button>
+              <button class="btn btn-light mt-1 border">≤</button>
+              <button class="btn btn-light mt-1 border space3">≥</button>
+              <button class="btn btn-light mt-1 border" id="numbers">1</button>
+              <button class="btn btn-light mt-1 border" id="numbers">2</button>
+              <button class="btn btn-light mt-1 border" id="numbers">3</button>
+              <button class="btn btn-light mt-1 border space7">-</button>
+              <button class="btn btn-light mt-1 border" id="back">⌫</button>
+            </div>
+            <div class="line8">
+              <button
+                class="btns btn-light border"
+                onclick="switchKeys()"
+                id="SwitchNum"
+              >
+                ABC
+              </button>
+              <button class="btn btn-light border" id="sound">🔊</button>
+              <button class="btn btn-light border">√</button>
+              <button class="btn btn-light border space4">π</button>
+              <button class="btn btn-light border" id="numbers">0</button>
+              <button class="btn btn-light border" id="numbers">.</button>
+              <button class="btn btn-light border">=</button>
+              <button class="btn btn-light border space8">+</button>
+              <button class="btn btn-primary border" id="Graph">Graph</button>
+            </div>
+          </div>
+          <!-- numericKeys-end -->
+          <div class="AlphabeticKeys" id="alphabeticKeys">
+            <div class="line1">
+              <button class="btn btn-light border">q</button>
+              <button class="btn btn-light border">w</button>
+              <button class="btn btn-light border">e</button>
+              <button class="btn btn-light border">r</button>
+              <button class="btn btn-light border">t</button>
+              <button class="btn btn-light border">y</button>
+              <button class="btn btn-light border">u</button>
+              <button class="btn btn-light border">i</button>
+              <button class="btn btn-light border">o</button>
+              <button class="btn btn-light border">p</button>
+            </div>
+            <div class="line2">
+              <button class="btn btn-light mt-1 border">a</button>
+              <button class="btn btn-light mt-1 border">s</button>
+              <button class="btn btn-light mt-1 border">d</button>
+              <button class="btn btn-light mt-1 border">f</button>
+              <button class="btn btn-light mt-1 border">g</button>
+              <button class="btn btn-light mt-1 border">h</button>
+              <button class="btn btn-light mt-1 border">j</button>
+              <button class="btn btn-light mt-1 border">k</button>
+              <button class="btn btn-light mt-1 border">l</button>
+              <button class="btn btn-light mt-1 border">0</button>
+            </div>
+            <div class="line3">
+              <button
+                class="btns btn-light border"
+                onclick="capslockKeys()"
+                id="capslock"
+              >
+                ⇪
+              </button>
+              <button class="btn btn-light border">z</button>
+              <button class="btn btn-light border">x</button>
+              <button class="btn btn-light border">c</button>
+              <button class="btn btn-light border">v</button>
+              <button class="btn btn-light border">b</button>
+              <button class="btn btn-light border">n</button>
+              <button class="btn btn-light border">m</button>
+              <button class="btn btn-light border" id="backspace">⌫</button>
+            </div>
+            <div class="line4">
+              <button
+                class="btns btn-light border"
+                onclick="switchKeys()"
+                id="SwitchAlpha"
+              >
+                123
+              </button>
+              <button class="btn btn-light border">a<sub>b</sub></button>
+              <button class="btn btn-light border">!<sup> %</sup></button>
+              <button class="btn btn-light border">[ ]</button>
+              <button class="btn btn-light border">{ }</button>
+              <button class="btn btn-light border">~ <sup> :</sup></button>
+              <button class="btn btn-light border">,<sup> '</sup></button>
+              <button class="btn btn-primary border leftcurvedarrow">
+                Graph
+              </button>
+            </div>
+          </div>
+          <!-- alphabeticKeys-end -->
+          <div id="capsAlphabeticKeys">
+            <div class="line1">
+              <button class="btn btn-light border">Q</button>
+              <button class="btn btn-light border">W</button>
+              <button class="btn btn-light border">E</button>
+              <button class="btn btn-light border">R</button>
+              <button class="btn btn-light border">T</button>
+              <button class="btn btn-light border">Y</button>
+              <button class="btn btn-light border">U</button>
+              <button class="btn btn-light border">I</button>
+              <button class="btn btn-light border">O</button>
+              <button class="btn btn-light border">P</button>
+            </div>
+            <div class="line2">
+              <button class="btn btn-light mt-1 border">A</button>
+              <button class="btn btn-light mt-1 border">S</button>
+              <button class="btn btn-light mt-1 border">D</button>
+              <button class="btn btn-light mt-1 border">F</button>
+              <button class="btn btn-light mt-1 border">G</button>
+              <button class="btn btn-light mt-1 border">H</button>
+              <button class="btn btn-light mt-1 border">J</button>
+              <button class="btn btn-light mt-1 border">K</button>
+              <button class="btn btn-light mt-1 border">L</button>
+              <button class="btn btn-light mt-1 border">0</button>
+            </div>
+            <div class="line9">
+              <button
+                class="btns btn-light border"
+                onclick="capslockKeys()"
+                id="capslockCaps"
+              >
+                ⇪
+              </button>
+              <button class="btn btn-light border">Z</button>
+              <button class="btn btn-light border">X</button>
+              <button class="btn btn-light border">C</button>
+              <button class="btn btn-light border">V</button>
+              <button class="btn btn-light border">B</button>
+              <button class="btn btn-light border">N</button>
+              <button class="btn btn-light border">M</button>
+              <button class="btn btn-light border" id="backspace">⌫</button>
+            </div>
+            <div class="line10">
+              <button class="btns btn-light border" id="SwitchAlpha">
+                123
+              </button>
+              <button class="btn btn-light border">a<sub>b</sub></button>
+              <button class="btn btn-light border">!<sup> %</sup></button>
+              <button class="btn btn-light border">[ ]</button>
+              <button class="btn btn-light border">{ }</button>
+              <button class="btn btn-light border">~ <sup> :</sup></button>
+              <button class="btn btn-light border">,<sup> '</sup></button>
+              <button class="btn btn-primary border leftcurvedarrow">
+                Graph
+              </button>
+            </div>
+          </div>
+          <!-- capsAlphabeticKeys-end -->
+        </div>
+        <!-- overlay-content-end -->
+      </div>
+      <button type="button" class="btn btn-light border" id="keybordbtn">
+        <span
+          class="bi bi-keyboard"
+          onclick="keybordopenNav()"
+          style="cursor: pointer"
+        ></span>
       </button>
     </div>
-
-    <div class="input-group input-group-lg">
-      <span class="input-group-text" id="inputGroup-sizing-lg">1</span>
-      <input id="cal-display" type="text" class="form-control" aria-label="Sizing example input"
-        aria-describedby="inputGroup-sizing-lg" />
-        <button class="btn btn-light" id="inputclear">🗙</button>
-    </div>
-    <div id="myNav" class="overlay">
-      <a href="javascript:void(0)" class="closebtn" onclick="KeybordcloseNav()">&times;</a>
-      <div class="overlay-content">
-        <div id="numericKeys">
-          <div class="line5">
-            <button class="btn btn-light mt-1 border">x</button>
-            <button class="btn btn-light mt-1 border">y</button>
-            <button class="btn btn-light mt-1 border">a<sup>2</sup></button>
-            <button class="btn btn-light mt-1 border space1">
-              a<sup>b</sup>
-            </button>
-            <button class="btn btn-light mt-1 border" id="numbers">7</button>
-            <button class="btn btn-light mt-1 border" id="numbers">8</button>
-            <button class="btn btn-light mt-1 border" id="numbers">9</button>
-            <button class="btn btn-light mt-1 border space5">÷</button>
-            <button class="btn btn-light mt-1 border" id="functions">
-              functions
-            </button>
-          </div>
-          <div class="line6">
-            <button class="btn btn-light mt-1 border">(</button>
-            <button class="btn btn-light mt-1 border">)</button>
-            <button class="btn btn-light mt-1 border">
-              < </button>
-                <button class="btn btn-light mt-1 border space2">></button>
-                <button class="btn btn-light mt-1 border" id="numbers">4</button>
-                <button class="btn btn-light mt-1 border" id="numbers">5</button>
-                <button class="btn btn-light mt-1 border" id="numbers">6</button>
-                <button class="btn btn-light mt-1 border space6">×</button>
-                <button class="btn btn-light mt-1 border" id="leftarrow">
-                  ←
-                </button>
-                <button class="btn btn-light mt-1 border" id="rightarrow">
-                  →
-                </button>
-          </div>
-          <div class="line7">
-            <button class="btn btn-light mt-1 border">|a|</button>
-            <button class="btn btn-light mt-1 border">,</button>
-            <button class="btn btn-light mt-1 border">≤</button>
-            <button class="btn btn-light mt-1 border space3">≥</button>
-            <button class="btn btn-light mt-1 border" id="numbers">1</button>
-            <button class="btn btn-light mt-1 border" id="numbers">2</button>
-            <button class="btn btn-light mt-1 border" id="numbers">3</button>
-            <button class="btn btn-light mt-1 border space7">-</button>
-            <button class="btn btn-light mt-1 border" id="back">⌫</button>
-          </div>
-          <div class="line8">
-            <button class="btns btn-light border" onclick="switchKeys()" id="SwitchNum">
-              ABC
-            </button>
-            <button class="btn btn-light border" id="sound">🔊</button>
-            <button class="btn btn-light border">√</button>
-            <button class="btn btn-light border space4">π</button>
-            <button class="btn btn-light border" id="numbers">0</button>
-            <button class="btn btn-light border" id="numbers">.</button>
-            <button class="btn btn-light border">=</button>
-            <button class="btn btn-light border space8">+</button>
-            <button class="btn btn-primary border" id="Graph">Graph</button>
-          </div>
-        </div>
-        <!-- numericKeys-end -->
-        <div class="AlphabeticKeys" id="alphabeticKeys">
-          <div class="line1">
-            <button class="btn btn-light border">q</button>
-            <button class="btn btn-light border">w</button>
-            <button class="btn btn-light border">e</button>
-            <button class="btn btn-light border">r</button>
-            <button class="btn btn-light border">t</button>
-            <button class="btn btn-light border">y</button>
-            <button class="btn btn-light border">u</button>
-            <button class="btn btn-light border">i</button>
-            <button class="btn btn-light border">o</button>
-            <button class="btn btn-light border">p</button>
-          </div>
-          <div class="line2">
-            <button class="btn btn-light mt-1 border">a</button>
-            <button class="btn btn-light mt-1 border">s</button>
-            <button class="btn btn-light mt-1 border">d</button>
-            <button class="btn btn-light mt-1 border">f</button>
-            <button class="btn btn-light mt-1 border">g</button>
-            <button class="btn btn-light mt-1 border">h</button>
-            <button class="btn btn-light mt-1 border">j</button>
-            <button class="btn btn-light mt-1 border">k</button>
-            <button class="btn btn-light mt-1 border">l</button>
-            <button class="btn btn-light mt-1 border">0</button>
-          </div>
-          <div class="line3">
-            <button class="btns btn-light border" onclick="capslockKeys()" id="capslock">
-              ⇪
-            </button>
-            <button class="btn btn-light border">z</button>
-            <button class="btn btn-light border">x</button>
-            <button class="btn btn-light border">c</button>
-            <button class="btn btn-light border">v</button>
-            <button class="btn btn-light border">b</button>
-            <button class="btn btn-light border">n</button>
-            <button class="btn btn-light border">m</button>
-            <button class="btn btn-light border" id="backspace">⌫</button>
-          </div>
-          <div class="line4">
-            <button class="btns btn-light border" onclick="switchKeys()" id="SwitchAlpha">
-              123
-            </button>
-            <button class="btn btn-light border">a<sub>b</sub></button>
-            <button class="btn btn-light border">!<sup> %</sup></button>
-            <button class="btn btn-light border">[ ]</button>
-            <button class="btn btn-light border">{ }</button>
-            <button class="btn btn-light border">~ <sup> :</sup></button>
-            <button class="btn btn-light border">,<sup> '</sup></button>
-            <button class="btn btn-primary border leftcurvedarrow">
-              Graph
-            </button>
-          </div>
-        </div>
-        <!-- alphabeticKeys-end -->
-        <div id="capsAlphabeticKeys">
-          <div class="line1">
-            <button class="btn btn-light border">Q</button>
-            <button class="btn btn-light border">W</button>
-            <button class="btn btn-light border">E</button>
-            <button class="btn btn-light border">R</button>
-            <button class="btn btn-light border">T</button>
-            <button class="btn btn-light border">Y</button>
-            <button class="btn btn-light border">U</button>
-            <button class="btn btn-light border">I</button>
-            <button class="btn btn-light border">O</button>
-            <button class="btn btn-light border">P</button>
-          </div>
-          <div class="line2">
-            <button class="btn btn-light mt-1 border">A</button>
-            <button class="btn btn-light mt-1 border">S</button>
-            <button class="btn btn-light mt-1 border">D</button>
-            <button class="btn btn-light mt-1 border">F</button>
-            <button class="btn btn-light mt-1 border">G</button>
-            <button class="btn btn-light mt-1 border">H</button>
-            <button class="btn btn-light mt-1 border">J</button>
-            <button class="btn btn-light mt-1 border">K</button>
-            <button class="btn btn-light mt-1 border">L</button>
-            <button class="btn btn-light mt-1 border">0</button>
-          </div>
-          <div class="line9">
-            <button class="btns btn-light border" onclick="capslockKeys()" id="capslockCaps">
-              ⇪
-            </button>
-            <button class="btn btn-light border">Z</button>
-            <button class="btn btn-light border">X</button>
-            <button class="btn btn-light border">C</button>
-            <button class="btn btn-light border">V</button>
-            <button class="btn btn-light border">B</button>
-            <button class="btn btn-light border">N</button>
-            <button class="btn btn-light border">M</button>
-            <button class="btn btn-light border" id="backspace">⌫</button>
-          </div>
-          <div class="line10">
-            <button class="btns btn-light border" id="SwitchAlpha">
-              123
-            </button>
-            <button class="btn btn-light border">a<sub>b</sub></button>
-            <button class="btn btn-light border">!<sup> %</sup></button>
-            <button class="btn btn-light border">[ ]</button>
-            <button class="btn btn-light border">{ }</button>
-            <button class="btn btn-light border">~ <sup> :</sup></button>
-            <button class="btn btn-light border">,<sup> '</sup></button>
-            <button class="btn btn-primary border leftcurvedarrow">
-              Graph
-            </button>
-          </div>
-        </div>
-        <!-- capsAlphabeticKeys-end -->
-      </div>
-      <!-- overlay-content-end -->
-    </div>
-    <button type="button" class="btn btn-light border" id="keybordbtn">
-      <span class="bi bi-keyboard" onclick="keybordopenNav()" style="cursor: pointer"></span>
+    <button type="button" class="btn btn-light" id="openNav">
+      <span
+        class="bi bi-chevron-double-right"
+        onclick="openNav()"
+        style="cursor: pointer"
+      ></span>
     </button>
-  </div>
-  <button type="button" class="btn btn-light" id="openNav">
-    <span class="bi bi-chevron-double-right" onclick="openNav()" style="cursor: pointer"></span>
-  </button>
-  <div class="graph">
-    <canvas id="canvas" width="860" height="600"></canvas>
-    <!-- <iframe src="desmoskeybord.html" width="100%" height="600" ></iframe> -->
-    <script src="script.js"></script>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
-  <script src="keyboard.js"></script>
-</body>
-
+    <div class="graph">
+      <canvas id="canvas" width="860" height="600"></canvas>
+      <!-- <iframe src="desmoskeybord.html" width="100%" height="600" ></iframe> -->
+      <script src="script.js"></script>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="keyboard.js"></script>
+  </body>
 </html>

@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   var display = document.getElementById("cal-display");
   var buttons = document.getElementsByClassName("btn");
@@ -10,48 +9,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
   display.addEventListener("keydown", function (event) {
     if (event.key === "Backspace") {
-        // Update the current value when the backspace key is pressed
-        currentValue = inputField.value;
+      // Update the current value when the backspace key is pressed
+      currentValue = display.value;
     }
   });
 
-  /* display.addEventListener("blur", function () {
-    // Ensure the input field value is up to date when it loses focus
-    currentValue = inputField.value;
-  });
-
   display.addEventListener("focus", function () {
-    // Set the input field value to the current value when it gains focus
-    inputField.value = currentValue;
-  }); */
+    // Move the cursor to the end of the input field when it gains focus
+    display.setSelectionRange(display.value.length, display.value.length);
+  });
 
   for (let button of buttons) {
     button.addEventListener("click", function () {
       const value = button.innerText;
+      display.focus();
 
       if (value == "⌫") {
         backSpace();
-      }
-      else if (value == "🗙") {
+      } else if (value == "🗙") {
         currentValue = " ";
         display.value = currentValue;
-      }
-      else if (value == 'a2') {
+      } else if (value == "a2") {
         var exponent = "\u00B2";
         currentValue = display.value + exponent;
         display.value = currentValue;
-      } else if (value == '×') {
-        currentValue = display.value + "*"
+      } else if (value == "×") {
+        currentValue = display.value + "*";
         display.value = currentValue;
-
-      } else if (value == 'Graph') {
-
-      }
-
-      else {
+      } else if (value == "Graph") {
+      } else {
         currentValue += value;
         display.value = currentValue;
       }
+
       function backSpace() {
         if (display.value.length > 1) {
           display.value = display.value.substring(0, display.value.length - 1);
@@ -61,16 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
           display.value = "";
         }
       }
-
-      /* function backSpace() {
-        display.value="";
-        currentValue="";
-      } */
-
     });
   }
 });
-
 
 document.getElementById("cal-display").addEventListener("focus", function () {
   keybordopenNav();

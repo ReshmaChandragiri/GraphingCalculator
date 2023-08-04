@@ -3,18 +3,18 @@
   bottom: 5px;
   left: 5px;
 }
-#openNav{
+#openNav {
   position: absolute;
   top: 5px;
   left: 5px;
 }
-#cal-display{
+#cal-display {
   cursor: pointer;
 }
-#inputclear{
+#inputclear {
   color: rgb(209, 215, 219);
 }
-#inputclear:hover{
+#inputclear:hover {
   color: #535151;
 }
 .overlay {
@@ -111,7 +111,7 @@
 #capslock:hover {
   background-color: #c7c3c3;
 }
-#capslockCaps{
+#capslockCaps {
   position: relative;
   top: 3px;
   padding: 7px 40px;
@@ -212,7 +212,7 @@
 #alphabeticKeys {
   display: none;
 }
-#capsAlphabeticKeys{
+#capsAlphabeticKeys {
   display: none;
 }
 
